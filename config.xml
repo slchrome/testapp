@@ -27,7 +27,7 @@
 
   <!-- Android only -->
   <preference name="android-build-tool" value="ant|gradle" />
-  <preference name="android-minSdkVersion" value="15" />
+  <preference name="android-minSdkVersion" value="26" />
   <preference name="android-maxSdkVersion" value="15" />
   <preference name="android-targetSdkVersion" value="12" />
   <preference name="android-installLocation" value="auto" />
