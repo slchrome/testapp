@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Device Properties Example</title>
+    <title>PhoneGap Application</title>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript">
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
+    var WatchID =  null;
+    // Wait for PhoneGap to load
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    // device APIs are available
-    //
+    // PhoneGap is ready
     function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
-                            'Device Cordova: '  + device.cordova  + '<br />' +
-                            'Device Platform: ' + device.platform + '<br />' +
-                            'Device UUID: '     + device.uuid     + '<br />' +
-                            'Device Model: '    + device.model    + '<br />' +
-                            'Device Version: '  + device.version  + '<br />';
+        startWatch();
+    }
+    
+    function startWatch(){
+        var options = {frequency: 3000};
+        watchID = navigator.accelerometer.watchAcceleration(onSuccess,onError,options);
+    }
+    
+    function stopWatch(){
+        if(watchID){
+            navigatoe.acceleromter.clearWatch(watchID);
+            watchID = null;
+        }
+    }
+    
+    function onSuccess(acceleration){
+        var element = document.getElementById('accelerometer')
+        element.innerHTML = 'Acceleration X: '+ acceleration.x + '<br />'+
+                            'Acceleration Y: '+ acceleration.y + '<br />'+
+                            'Acceleration Z: '+ acceleration.z + '<br />'+
+                            'Timestamp: '     + acceleration.timestamp + '<br />';
+                            
+    }
+    
+    function onError(){
+        alert('There was a problem');
     }
 
     </script>
   </head>
   <body>
-    <p id="deviceProperties">Loading device properties...</p>
+      <div id="accelerometer">Waiting for accelerometer..</div>
   </body>
 </html>
