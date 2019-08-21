@@ -3,45 +3,12 @@
   <head>
     <title>PhoneGap Application</title>
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript">
-
-    var WatchID =  null;
-    // Wait for PhoneGap to load
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    function onDeviceReady() {
-        startWatch();
-    }
-    
-    function startWatch(){
-        var options = {frequency: 3000};
-        watchID = navigator.accelerometer.watchAcceleration(onSuccess,onError,options);
-    }
-    
-    function stopWatch(){
-        if(watchID){
-            navigatoe.acceleromter.clearWatch(watchID);
-            watchID = null;
-        }
-    }
-    
-    function onSuccess(acceleration){
-        var element = document.getElementById('accelerometer')
-        element.innerHTML = 'Acceleration X: '+ acceleration.x + '<br />'+
-                            'Acceleration Y: '+ acceleration.y + '<br />'+
-                            'Acceleration Z: '+ acceleration.z + '<br />'+
-                            'Timestamp: '     + acceleration.timestamp + '<br />';
-                            
-    }
-    
-    function onError(){
-        alert('There was a problem');
-    }
-
-    </script>
+    <script type="text/javascript"> src="main.js"</script>
   </head>
   <body>
-      <div id="accelerometer">Waiting for accelerometer..</div>
+      <button onclick="takePhoto();">Take a Photo</button><br/>
+      <button onclick="getPhoto();">Get Photo</button><br />
+      <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
+      <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
   </body>
 </html>
