@@ -3,12 +3,12 @@
   <head>
     <title>PhoneGap Application</title>
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript"> src="main.js"</script>
+    <script type="text/javascript" src="main.js"></script>
   </head>
   <body>
-      <button onclick="takePhoto();">Take a Photos</button><br/>
-      <button onclick="getPhoto();">Get Photo</button><br />
+      <button onclick="takePhoto();">Take a Photo life</button><br />
+      <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Get Photo</button><br />
       <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
-      <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
+      <img style="display:none;width:200px;height:190px;" id="urlImage" src="" />
   </body>
 </html>
