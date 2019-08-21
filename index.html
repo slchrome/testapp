@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PhoneGap Application</title>
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript"> src="main.js"</script>
-  </head>
-  <body>
-      <button onclick="takePhoto();">Take a Photo</button><br/>
-      <button onclick="getPhoto();">Get Photo</button><br />
-      <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
-      <img style="display:none;width:200px;height:190px;" id="dataImage" src="" /><br />
-  </body>
+    <head>
+        <meta name="viewport" content="user-scalable=no,initial-scale=1, maximum-scale=1,minimum-scale=1, width=device-width" />
+        <title>PhoneGap Application</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <button onclick="takePhoto();">Take A Photo</button> <br>
+        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Get a Photo</button><br>
+        <img style="display:none;width:200px;height:190px;" id="dataImage" src="" />
+        <img style="display:none;width:200px;height:190px;" id="uriImage" src="" />
+    </body>
 </html>
